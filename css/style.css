@@ -23,6 +23,7 @@ padding-bottom: 18px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    z-index:1;
   }
   header p{
     color: #FFFFFF;
@@ -55,7 +56,53 @@ flex-direction: column;
 justify-content:space-between;
 padding:18px 14px 13px 14px;
 border-radius: 9px;
+border:5px solid #FFFFFF;
+position:relative;
 }
+.bebidas{
+  height: 243px;
+  display: flex;
+  overflow-x: scroll;
+  }
+.pedidoBebida{
+  height: 202px;
+  width:172px;
+  background-color:#FFFFFF;
+  border:5px solid #FFFFFF;
+  margin-right: 16px;
+  display:flex;
+  flex-direction: column;
+  justify-content:space-between;
+  padding:18px 14px 13px 14px;
+  border-radius: 9px;
+  position:relative;
+  }
+  .sobremesas{
+    height: 243px;
+    display: flex;
+    overflow-x: scroll;
+    }
+  .pedidoSobremesa{
+    height: 197px;
+    width:172px;
+    background-color:#FFFFFF;
+    border:5px solid #FFFFFF;
+    margin-right: 16px;
+    display:flex;
+    flex-direction: column;
+    justify-content:space-between;
+    padding:18px 14px 13px 14px;
+    border-radius: 9px;
+    position:relative;
+    }
+ion-icon{
+  position:absolute;
+  right:13px;
+  bottom:11px;
+  font-size:18px;
+  color:#32B72F;
+}
+
 .margin-baixo{
   margin-bottom:108px;
 }
@@ -63,7 +110,6 @@ h3{
   font-size:16px;
   color:#333333;
 }
-
 .desc{
   color:#A6A6A6;
 }
@@ -77,6 +123,7 @@ background-color: #FFFFFF;
 position:fixed;
 bottom:0;
 padding: 15px 25px;
+z-index:1;
 }
 footer .finalizarPedido1{
 color:#FFFFFF;
@@ -89,5 +136,33 @@ border-radius: 50px;
 border: none;
 display: flex;
 align-items: center;
+}
 
+
+
+
+
+/*usado no JS a partir daqui*/
+.selecionado{
+  border: 5px solid #32B72F;
+}
+
+.selecionado ion-icon{
+  display:initial;
+}
+.escondido{
+  display: none;
+}
+.botaoFinalizado{
+  color:#FFFFFF;
+  font-size:20px;
+  line-height: 24px;
+  font-weight: 700;
+  height: 61px;
+  width:364px;
+  background-color:#32B72F;
+  border-radius: 50px;
+  border: none;
+  display: flex;
+  align-items: center;
 }
