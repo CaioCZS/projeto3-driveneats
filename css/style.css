@@ -34,6 +34,10 @@ padding-bottom: 18px;
   h1,h2{
     font-family:'Righteous';
   }
+  h2{
+    font-size: 26px;
+    margin-bottom:17px;
+  }
  
 main{
   width: 414px;
@@ -116,6 +120,10 @@ h3{
 .preco{
   color:#000000;
 }
+.precoR{
+display: flex;
+}
+
 footer{
 height: 92px;
 width:414px;
@@ -131,14 +139,16 @@ font-size:20px;
 line-height: 24px;
 height: 61px;
 width:364px;
-background-color:#CBCBCB;
 border-radius: 50px;
 border: none;
 display: flex;
 align-items: center;
+justify-content: center;
 }
 
-
+footer .cor-cinza{
+  background-color:#CBCBCB
+}
 
 
 
@@ -154,6 +164,7 @@ align-items: center;
   display: none;
 }
 .botaoFinalizado{
+  
   color:#FFFFFF;
   font-size:20px;
   line-height: 24px;

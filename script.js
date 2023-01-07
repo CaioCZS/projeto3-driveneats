@@ -1,3 +1,7 @@
+
+let precoPrato;
+let pratoSelecionado;
+
 function selecionarPrato(pratoClicado){
 
 const pratoAnterior = document.querySelector(".pratos .selecionado");
@@ -6,8 +10,18 @@ if(pratoAnterior !== null){
 }
 
 pratoClicado.classList.add("selecionado");
+
+let Pt=pratoClicado.querySelector("h3");
+//console.log(Pt)
+pratoSelecionado= Pt.innerHTML;
+//console.log(pratoSelecionado)
+precoPrato=pratoClicado.querySelector(".preco").innerHTML;
+//console.log(precoPrato)
+ativarBotao();
 }
 
+let precoBebida;
+let bebidaSelecionada;
 function selecionarBebida(bebidaClicada){
 
 const bebidaAnterior=document.querySelector(".bebidas .selecionado");
@@ -16,9 +30,17 @@ if(bebidaAnterior !== null){
 }   
    
     bebidaClicada.classList.add("selecionado");
+
+    bebidaSelecionada=bebidaClicada.querySelector("h3").innerHTML;
+    //console.log(bebidaSelecionada)
+    precoBebida=bebidaClicada.querySelector(".preco").innerHTML;
+    console.log(precoBebida)
+    ativarBotao();
 }
 
-function selecionarSobremesa(sobremesaSelecionada){
+let precoSobremesa;
+let sobremesaSelecionada;
+function selecionarSobremesa(sobremesaClicada){
 
     const sobremesaAnterior= document.querySelector(".sobremesas .selecionado");
     if(sobremesaAnterior !== null){
@@ -26,5 +48,20 @@ function selecionarSobremesa(sobremesaSelecionada){
     }
 
 
-    sobremesaSelecionada.classList.add("selecionado");
+    sobremesaClicada.classList.add("selecionado");
+
+    sobremesaSelecionada=sobremesaClicada.querySelector("h3").innerHTML;
+    precoSobremesa=sobremesaClicada.querySelector(".preco").innerHTML;
+    console.log(precoSobremesa)
+    //console.log(sobremesaSelecionada)
+    ativarBotao();
+}
+
+function ativarBotao(){
+    if(pratoSelecionado !== undefined && bebidaSelecionada !== undefined && sobremesaSelecionada !== undefined){
+        document.querySelector(".finalizarPedido1").classList.remove("cor-cinza");
+        document.querySelector(".finalizarPedido1").classList.add("botaoFinalizado");
+        document.querySelector(".finalizarPedido1").innerHTML="Fechar pedido";
+        console.log(document.querySelector(".finalizarPedido1").innerHTML)
+    }
 }
