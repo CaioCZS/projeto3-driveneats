@@ -149,7 +149,10 @@ justify-content: center;
 footer .cor-cinza{
   background-color:#CBCBCB
 }
-
+.desativado{
+  pointer-events:none;
+  cursor:default;
+}
 
 
 /*usado no JS a partir daqui*/
@@ -162,6 +165,9 @@ footer .cor-cinza{
 }
 .escondido{
   display: none;
+}
+a{
+  text-decoration: none;
 }
 .botaoFinalizado{
   

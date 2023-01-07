@@ -34,7 +34,7 @@ if(bebidaAnterior !== null){
     bebidaSelecionada=bebidaClicada.querySelector("h3").innerHTML;
     //console.log(bebidaSelecionada)
     precoBebida=bebidaClicada.querySelector(".preco").innerHTML;
-    console.log(precoBebida)
+    //console.log(precoBebida)
     ativarBotao();
 }
 
@@ -52,7 +52,7 @@ function selecionarSobremesa(sobremesaClicada){
 
     sobremesaSelecionada=sobremesaClicada.querySelector("h3").innerHTML;
     precoSobremesa=sobremesaClicada.querySelector(".preco").innerHTML;
-    console.log(precoSobremesa)
+    //console.log(precoSobremesa)
     //console.log(sobremesaSelecionada)
     ativarBotao();
 }
@@ -62,6 +62,7 @@ function ativarBotao(){
         document.querySelector(".finalizarPedido1").classList.remove("cor-cinza");
         document.querySelector(".finalizarPedido1").classList.add("botaoFinalizado");
         document.querySelector(".finalizarPedido1").innerHTML="Fechar pedido";
-        console.log(document.querySelector(".finalizarPedido1").innerHTML)
+        document.querySelector("a").classList.remove("desativado");
+        //console.log(document.querySelector(".finalizarPedido1").innerHTML)
     }
 }
