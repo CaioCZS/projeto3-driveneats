@@ -56,13 +56,33 @@ function selecionarSobremesa(sobremesaClicada){
     //console.log(sobremesaSelecionada)
     ativarBotao();
 }
-
+let valorTotal=0;
 function ativarBotao(){
     if(pratoSelecionado !== undefined && bebidaSelecionada !== undefined && sobremesaSelecionada !== undefined){
         document.querySelector(".finalizarPedido1").classList.remove("cor-cinza");
         document.querySelector(".finalizarPedido1").classList.add("botaoFinalizado");
         document.querySelector(".finalizarPedido1").innerHTML="Fechar pedido";
-        document.querySelector("a").classList.remove("desativado");
+        document.querySelector(".finalizarPedido1").removeAttribute("disabled");
         //console.log(document.querySelector(".finalizarPedido1").innerHTML)
+    
+    }
+}
+
+function enviarMensagem(){
+let nvPrecoB = Number(precoBebida.replace(",","."));
+let nvPrecoP = Number(precoPrato.replace(",","."));
+let nvPrecoS = Number(precoSobremesa.replace(",","."));
+//console.log(typeof(nvPrecoS));
+valorTotal=(nvPrecoP + nvPrecoB + nvPrecoS);
+let valorFinal=valorTotal.toFixed(2);
+console.log(valorTotal);
+console.log(valorFinal);
+    
+    if(pratoSelecionado !== undefined && bebidaSelecionada !== undefined && sobremesaSelecionada !== undefined){
+        const celular="5511993392719";
+        let textoDaMensagem=`Olá gostaria de fazer o pedido: \n - Prato: ${pratoSelecionado} \n - Bebida: ${bebidaSelecionada} \n - Sobremesa: ${sobremesaSelecionada} \n Total: R$ ${valorFinal}`;
+        textoDaMensagem=window.encodeURIComponent(textoDaMensagem);
+        console.log(textoDaMensagem);
+        window.open("https://api.whatsapp.com/send?phone=" + celular + "&text=" +textoDaMensagem,"_blank");
     }
 }
