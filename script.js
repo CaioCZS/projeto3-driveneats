@@ -75,12 +75,13 @@ let nvPrecoP = Number(precoPrato.replace(",","."));
 let nvPrecoS = Number(precoSobremesa.replace(",","."));
 valorTotal=(nvPrecoP + nvPrecoB + nvPrecoS);
 valorFinal=valorTotal.toFixed(2);
+let valorFinal2=valorFinal.replace(".",",");
 //console.log(valorTotal);
 //console.log(valorFinal);
     
     if(pratoSelecionado !== undefined && bebidaSelecionada !== undefined && sobremesaSelecionada !== undefined){
         const celular="5511993392719";
-        let textoDaMensagem=`Olá gostaria de fazer o pedido: \n - Prato: ${pratoSelecionado} \n - Bebida: ${bebidaSelecionada} \n - Sobremesa: ${sobremesaSelecionada} \n Total: R$ ${valorFinal} \n\n Nome: ${nomePessoa} \n Endereço: ${enderecoPessoa}`;
+        let textoDaMensagem=`Olá gostaria de fazer o pedido: \n - Prato: ${pratoSelecionado} \n - Bebida: ${bebidaSelecionada} \n - Sobremesa: ${sobremesaSelecionada} \n Total: R$ ${valorFinal2} \n\n Nome: ${nomePessoa} \n Endereço: ${enderecoPessoa}`;
         textoDaMensagem=window.encodeURIComponent(textoDaMensagem);
         console.log(textoDaMensagem);
         window.open("https://api.whatsapp.com/send?phone=" + celular + "&text=" +textoDaMensagem,"_blank");
