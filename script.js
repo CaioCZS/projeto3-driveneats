@@ -57,6 +57,7 @@ function selecionarSobremesa(sobremesaClicada){
     ativarBotao();
 }
 let valorTotal=0;
+let valorFinal;
 function ativarBotao(){
     if(pratoSelecionado !== undefined && bebidaSelecionada !== undefined && sobremesaSelecionada !== undefined){
         document.querySelector(".finalizarPedido1").classList.remove("cor-cinza");
@@ -72,17 +73,40 @@ function enviarMensagem(){
 let nvPrecoB = Number(precoBebida.replace(",","."));
 let nvPrecoP = Number(precoPrato.replace(",","."));
 let nvPrecoS = Number(precoSobremesa.replace(",","."));
-//console.log(typeof(nvPrecoS));
 valorTotal=(nvPrecoP + nvPrecoB + nvPrecoS);
-let valorFinal=valorTotal.toFixed(2);
-console.log(valorTotal);
-console.log(valorFinal);
+valorFinal=valorTotal.toFixed(2);
+//console.log(valorTotal);
+//console.log(valorFinal);
     
     if(pratoSelecionado !== undefined && bebidaSelecionada !== undefined && sobremesaSelecionada !== undefined){
         const celular="5511993392719";
-        let textoDaMensagem=`Olá gostaria de fazer o pedido: \n - Prato: ${pratoSelecionado} \n - Bebida: ${bebidaSelecionada} \n - Sobremesa: ${sobremesaSelecionada} \n Total: R$ ${valorFinal}`;
+        let textoDaMensagem=`Olá gostaria de fazer o pedido: \n - Prato: ${pratoSelecionado} \n - Bebida: ${bebidaSelecionada} \n - Sobremesa: ${sobremesaSelecionada} \n Total: R$ ${valorFinal} \n\n Nome: ${nomePessoa} \n Endereço: ${enderecoPessoa}`;
         textoDaMensagem=window.encodeURIComponent(textoDaMensagem);
         console.log(textoDaMensagem);
         window.open("https://api.whatsapp.com/send?phone=" + celular + "&text=" +textoDaMensagem,"_blank");
     }
+}
+let nomePessoa;
+let enderecoPessoa;
+function exibirConfirmacao(){
+let nvPrecoB = Number(precoBebida.replace(",","."));
+let nvPrecoP = Number(precoPrato.replace(",","."));
+let nvPrecoS = Number(precoSobremesa.replace(",","."));
+valorTotal=(nvPrecoP + nvPrecoB + nvPrecoS);
+valorFinal=valorTotal.toFixed(2);
+let valorFinal2=valorFinal.replace(".",",");
+document.querySelector(".fundoBranco").classList.remove("escondido");
+document.querySelector(".CPnomePrato").innerHTML=pratoSelecionado;
+document.querySelector(".CPprecoPrato").innerHTML=precoPrato;
+document.querySelector(".CPnomeBebida").innerHTML=bebidaSelecionada;
+document.querySelector(".CPprecoBebida").innerHTML=precoBebida;
+document.querySelector(".CPnomeSobremesa").innerHTML=sobremesaSelecionada;
+document.querySelector(".CPprecoSobremesa").innerHTML=precoSobremesa;
+document.querySelector(".somaTotal").innerHTML=`R$ ${valorFinal2}`;
+nomePessoa=prompt("Qual o seu nome?")
+enderecoPessoa=prompt("Qual o seu endereço?")
+}
+
+function cancelarPedido(){
+    document.querySelector(".fundoBranco").classList.add("escondido");
 }
